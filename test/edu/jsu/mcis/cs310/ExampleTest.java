@@ -1,13 +1,14 @@
 package edu.jsu.mcis.cs310;
 import org.junit.*;
-
+import java.lang.StringBuilder;
 import static org.junit.Assert.*;
 
 public class ExampleTest {
 
     private Main main;
     private String expectedGreeting, expectedReverseGreeting;
-    private String expectedReverse1, expectedReverse2, expectedReverse3;
+    private String expectedReverse1, expectedReverse2, expectedReverse3, expectedReverse4;
+    StringBuilder sb = new StringBuilder();
     
     @Before
     public void setUp() {
@@ -17,6 +18,7 @@ public class ExampleTest {
         expectedReverse1 = "topaeT elttiL a m'I";
         expectedReverse2 = "elddiD elddiD yeH";
         expectedReverse3 = "kcoD yrokciD yrokciH";
+        expectedReverse4 = "racecaR";
     }
         
     @Test
@@ -34,6 +36,7 @@ public class ExampleTest {
     @Test
     public void testReverseMessage1() {
         String actual = main.reverse("I'm a Little Teapot");
+        
         assertEquals(expectedReverse1, actual);
     }
     
@@ -49,4 +52,9 @@ public class ExampleTest {
         assertEquals(expectedReverse3, actual);
     }
     
+    @Test
+    public void testReverseMessage4() {
+        String actual = main.reverse("Racecar");
+        assertEquals(expectedReverse4, actual);
+    }
 }
